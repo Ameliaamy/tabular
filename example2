@@ -1,0 +1,18 @@
+from tabulate import tabulate
+
+# Sample data for the table
+data = [
+    ["N1", 28, "J1"],
+    ["N2", 24, "J2"],
+    ["N3", 32, "J3"],
+    ["N4", 22, "J4"],
+]
+
+# Define headers for the table
+headers = ["Name", "Age", "Occupation"]
+
+# Create the table
+table = tabulate(data, headers, tablefmt="fancy")
+
+# Print the table
+print(table)
