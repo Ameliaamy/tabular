@@ -1,0 +1,26 @@
+def draw_table(data, header):
+    # Calculate the width of each column
+    col_widths = [max(len(str(item)) for item in col) for col in zip(*data, header)]
+
+    # Create the horizontal line
+    horizontal_line = "+".join("-" * (width + 2) for width in col_widths)
+
+    # Print the header
+    print(horizontal_line)
+    print("| " + " | ".join(f"{item:{width}}" for item, width in zip(header, col_widths)) + " |")
+    print(horizontal_line)
+
+    # Print the data rows
+    for row in data:
+        print("| " + " | ".join(f"{item:{width}}" for item, width in zip(row, col_widths)) + " |")
+        print(horizontal_line)
+
+# Example usage:
+data = [
+    ["Amelia", 25, "job1"],
+    ["Amy", 30, "job2"],
+    ["ameliamy", 22, "job3"],
+]
+header = ["Name", "Age", "Occupation"]
+
+draw_table(data, header)
